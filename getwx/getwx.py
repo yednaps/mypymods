@@ -4,7 +4,7 @@ from urllib import urlopen
 from bs4 import BeautifulSoup
 from datetime import datetime
 
-outfile = "/home/sp/python/getwx/wxdata.csv"
+outfile = "/home/sp/python/mypymods/getwx/wxdata.csv"
 
 links = {'Cha':"http://forecast.weather.gov/MapClick.php?lat=33.26893692200048&lon=-111.8117973839997",
          'Flg':"http://forecast.weather.gov/MapClick.php?lat=35.19806869600046&lon=-111.6512696319997",
