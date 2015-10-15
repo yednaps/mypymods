@@ -14,10 +14,13 @@ links = {'Cha':"http://forecast.weather.gov/MapClick.php?lat=33.26893692200048&l
 res = {}
 
 for c,l in sorted(links.items()):
-    hl = urlopen(l).read()
-    sl = BeautifulSoup(hl)
-    tl = int(sl.find('p','myforecast-current-lrg').string.replace(u'\xb0F',u''))
-    res[c] = tl
+    try:
+        hl = urlopen(l).read()
+        sl = BeautifulSoup(hl)
+        tl = int(sl.find('p','myforecast-current-lrg').string.replace(u'\xb0F',u''))
+        res[c] = tl
+    except:
+        tl = ''
 
 dt = datetime.now().strftime('%Y-%m-%d %H:%M')
 data = ','.join(map(str,[t for c,t in sorted(res.items())]))
